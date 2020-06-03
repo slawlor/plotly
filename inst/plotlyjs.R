@@ -1,7 +1,7 @@
 library(httr)
 # download latest GitHub release
 # for a particular version: `zip <- "https://github.com/plotly/plotly.js/archive/v1.33.1.zip"`
-x <- GET('https://api.github.com/repos/plotly/plotly.js/releases/latest')
+x <- GET('https://api.github.com/repos/slawlor/plotly.js/releases/latest')
 zip <- content(x)$zipball_url
 tmp <- tempfile(fileext = ".zip")
 download.file(zip, tmp)
@@ -28,7 +28,7 @@ file.copy(
 )
 # update typed array polyfill
 download.file(
-  "https://raw.githubusercontent.com/plotly/plotly.js/master/dist/extras/typedarray.min.js",
+  "https://raw.githubusercontent.com/slawlor/plotly.js/master/dist/extras/typedarray.min.js",
   "inst/htmlwidgets/lib/typedarray/typedarray.min.js"
 )
 
@@ -45,6 +45,6 @@ message("Manually update plotly.R with this version")
 
 # download latest build from master 
 #download.file(
-#  "https://raw.githubusercontent.com/plotly/plotly.js/master/dist/plotly.min.js", 
+#  "https://raw.githubusercontent.com/slawlor/plotly.js/master/dist/plotly.min.js", 
 #  destfile = "inst/htmlwidgets/lib/plotlyjs/plotly-latest.min.js"
 #)
